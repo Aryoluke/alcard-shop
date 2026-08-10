@@ -8,15 +8,22 @@ Cloudflare Pages. The production copy lives in the main project at
 
 ## Files
 
-- `index.html` — the shop (one page: hero, tiers, compare, order via WhatsApp)
+- `index.html` — home page (hero, how it works, includes, guarantee, CTA)
+- `cards.html` — cards & pricing (tiers, add-ons, compare table)
+- `order.html` — order form (quantities, live total, custom domain, WhatsApp)
+- `faq.html` — questions people ask
 - `privacy.html` — privacy policy (linked from the footer)
+- `style.css` — shared stylesheet for all pages
 
 ## Order flow
 
-No backend: the order form opens WhatsApp with a pre-filled message.
-Change `WHATSAPP_NUMBER` in `index.html` to the real business number before launch.
+No backend: the order form opens WhatsApp with a pre-filled message
+(breakdown + total). Change `WHATSAPP_NUMBER` in `order.html` to the real
+business number before launch.
 
-Tiers (no custom printing — decided Aug 2026):
-- Starter £9.99 — NFC sticker
-- Standard £14.99 — PVC NFC card
-- Premium £19.99 — PVC card + 2 extra stickers
+Tiers (no custom printing — decided Aug 2026; digital QR code, not a QR card):
+- Starter £5.99 — NFC sticker
+- Standard £9.99 — PVC NFC card
+- Premium £14.99 — PVC card + 2 extra stickers
+
+Add-ons: extra sticker 50p, extra card £1, custom domain +£5.
