@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagmi — NFC Business Cards from £9.99 (no subscription)</title>
+    <meta name="description" content="Tap your Tagmi on any phone — your contact details, socials and Save Contact open instantly. From £9.99 one-time, no app, no subscription, free updates forever.">
+    <meta property="og:title" content="Tagmi — NFC Business Cards from £9.99">
+    <meta property="og:description" content="One tap shares your contact details. No app. No subscription. Free updates forever.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#070B14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232DD4BF'/%3E%3Cstop offset='1' stop-color='%2334D399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='19' font-weight='800' fill='%23070B14' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #070B14;
+            --bg-soft: #0C1322;
+            --bg-card: #0F1729;
+            --line: rgba(255, 255, 255, 0.09);
+            --line-strong: rgba(255, 255, 255, 0.16);
+            --text: #F4F7FB;
+            --muted: rgba(244, 247, 251, 0.62);
+            --dim: rgba(244, 247, 251, 0.42);
+            --accent: #2DD4BF;
+            --accent-2: #34D399;
+            --grad: linear-gradient(120deg, #2DD4BF 0%, #34D399 100%);
+            --whatsapp: #25D366;
+            --radius: 16px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        ::selection { background: rgba(45, 212, 191, 0.3); }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        /* Announcement bar */
+        .announce {
+            background: var(--grad);
+            color: #05211C;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 9px 16px;
+            letter-spacing: 0.2px;
+        }
+        .announce span { font-weight: 500; }
+
+        /* Nav */
+        nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(7, 11, 20, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: 1120px; margin: 0 auto; }
+        .logo { font-size: 21px; font-weight: 800; letter-spacing: -0.3px; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 8px; }
+        .logo .dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--grad);
+            box-shadow: 0 0 12px rgba(45, 212, 191, 0.8);
+            display: inline-block;
+        }
+        .nav-links { display: flex; align-items: center; gap: 26px; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+        .nav-links a:hover { color: var(--text); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: var(--grad); color: #05211C; font-weight: 800;
+            padding: 13px 26px; border-radius: 12px; text-decoration: none;
+            font-size: 15px; border: none; cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 8px 24px rgba(45, 212, 191, 0.25);
+        }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35); }
+        .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line-strong); box-shadow: none; font-weight: 600; }
+        .btn.ghost:hover { border-color: rgba(45, 212, 191, 0.6); color: var(--accent); box-shadow: none; }
+        .btn.small { padding: 9px 18px; font-size: 13.5px; border-radius: 10px; }
+        .btn.whatsapp { background: var(--whatsapp); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25); }
+
+        /* Hero */
+        .hero { position: relative; padding: 84px 0 60px; }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+        .kicker {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.3);
+            color: var(--accent); font-size: 13px; font-weight: 700;
+            padding: 7px 14px; border-radius: 100px; margin-bottom: 22px; letter-spacing: 0.2px;
+        }
+        .kicker .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+        h1 { font-size: clamp(2.5rem, 5vw, 3.7rem); line-height: 1.08; letter-spacing: -0.035em; font-weight: 900; margin-bottom: 20px; }
+        h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero-sub { font-size: 18px; color: var(--muted); max-width: 520px; margin-bottom: 30px; }
+        .hero-sub strong { color: var(--text); font-weight: 600; }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+        .hero-trust { display: flex; flex-wrap: wrap; gap: 18px; color: var(--dim); font-size: 13.5px; font-weight: 500; }
+        .hero-trust span { display: inline-flex; align-items: center; gap: 7px; }
+        .hero-trust svg { width: 15px; height: 15px; stroke: var(--accent); }
+
+        /* Phone + card demo */
+        .stage { position: relative; width: 100%; max-width: 400px; margin: 0 auto; }
+        .phone {
+            width: 240px; height: 480px; margin: 0 auto;
+            background: linear-gradient(165deg, #1B2438, #0D1424 60%);
+            border: 2px solid #2A3556;
+            border-radius: 44px;
+            padding: 12px;
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+            position: relative;
+        }
+        .phone .notch { width: 92px; height: 24px; background: #060A12; border-radius: 100px; margin: 2px auto 10px; }
+        .screen {
+            background: linear-gradient(180deg, #0E1830 0%, #101B33 55%, #12203A 100%);
+            border-radius: 32px; height: 424px; padding: 20px 16px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .screen::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 60% at 50% 0%, rgba(45,212,191,0.12), transparent 60%); pointer-events: none; }
+        .screen .time { font-size: 11px; color: var(--dim); font-weight: 600; margin-bottom: 12px; }
+        .screen .ava {
+            width: 74px; height: 74px; border-radius: 50%; margin: 0 auto 10px;
+            background: var(--grad); color: #05211C; font-weight: 900; font-size: 26px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .screen .nm { font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+        .screen .st { font-size: 11.5px; color: var(--accent); font-weight: 600; margin: 2px 0 14px; }
+        .screen .row { display: flex; gap: 6px; margin-bottom: 6px; }
+        .screen .chip {
+            flex: 1; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px; padding: 10px 4px; font-size: 10.5px; color: var(--muted); font-weight: 500;
+        }
+        .screen .chip b { display: block; font-size: 10px; color: var(--text); font-weight: 700; }
+        .screen .save {
+            margin-top: 12px; background: var(--grad); color: #05211C; font-weight: 800; font-size: 13px;
+            border-radius: 12px; padding: 13px; letter-spacing: 0.2px;
+        }
+        .tap-ring { position: absolute; right: -34px; top: 96px; width: 62px; height: 62px; border-radius: 50%; border: 2px solid rgba(45, 212, 191, 0.55); opacity: 0; }
+        .tap-ring.r2 { animation: ring 3.2s ease-out 0s infinite; }
+        .tap-ring.r3 { animation: ring 3.2s ease-out 1.1s infinite; }
+        .tap-ring.r4 { animation: ring 3.2s ease-out 2.2s infinite; }
+        @keyframes ring {
+            0% { transform: scale(0.35); opacity: 0.8; }
+            70% { opacity: 0; }
+            100% { transform: scale(1.35); opacity: 0; }
+        }
+        .tap-card {
+            position: absolute; left: 0; top: 118px; width: 150px; height: 92px;
+            background: linear-gradient(135deg, #12203A, #0B1222);
+            border: 1px solid rgba(45, 212, 191, 0.5);
+            border-radius: 14px; padding: 13px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+            animation: tap 4.4s ease-in-out infinite;
+            z-index: 2;
+        }
+        @keyframes tap {
+            0%, 14% { transform: translate(0, 0) rotate(-5deg); }
+            30%, 52% { transform: translate(212px, -34px) rotate(3deg); }
+            66%, 100% { transform: translate(0, 0) rotate(-5deg); }
+        }
+        .tap-card .tc-logo { font-size: 11px; font-weight: 900; letter-spacing: -0.01em; color: var(--accent); display: flex; align-items: center; gap: 5px; }
+        .tap-card .tc-logo .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad); display: inline-block; }
+        .tap-card .tc-name { font-size: 12px; font-weight: 800; margin-top: 9px; letter-spacing: -0.01em; }
+        .tap-card .tc-role { font-size: 9px; color: var(--muted); }
+        .tap-card .tc-nfc { margin-top: 9px; display: flex; align-items: center; justify-content: space-between; }
+        .tap-card .tc-nfc svg { width: 20px; height: 14px; stroke: var(--accent); }
+        .tap-card .tc-nfc span { font-size: 8.5px; font-weight: 700; color: var(--dim); letter-spacing: 1.5px; }
+        .float-note {
+            position: absolute; left: -8px; top: 0;
+            background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.3);
+            color: var(--accent); font-size: 12px; font-weight: 700;
+            padding: 7px 12px; border-radius: 100px;
+        }
+
+        /* Sections */
+        section { padding: 84px 0; }
+        .eyebrow { text-align: center; font-size: 12.5px; font-weight: 800; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
+        h2 { text-align: center; font-size: clamp(1.8rem, 3.4vw, 2.5rem); letter-spacing: -0.03em; font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+        .sub { text-align: center; color: var(--muted); max-width: 560px; margin: 0 auto 52px; font-size: 16px; }
+
+        /* How it works */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .step {
+            background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 30px 26px; position: relative; transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .step:hover { transform: translateY(-4px); border-color: rgba(45, 212, 191, 0.4); }
+        .step .num {
+            width: 44px; height: 44px; border-radius: 12px; background: var(--grad);
+            color: #05211C; font-weight: 900; font-size: 18px;
+            display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+        }
+        .step h3 { font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .step p { font-size: 14.5px; color: var(--muted); }
+        .step .time { position: absolute; top: 26px; right: 24px; font-size: 12px; font-weight: 700; color: var(--accent); background: rgba(45,212,191,0.1); padding: 4px 10px; border-radius: 100px; }
+
+        /* Products */
+        .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+        .plan {
+            background: var(--bg-card); border: 1px solid var(--line); border-radius: 20px;
+            padding: 32px 26px 26px; display: flex; flex-direction: column; position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .plan:hover { transform: translateY(-4px); }
+        .plan .ribbon {
+            position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+            background: var(--grad); color: #05211C; font-size: 11.5px; font-weight: 800;
+            padding: 5px 14px; border-radius: 100px; letter-spacing: 0.6px; text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .plan .tag { font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+        .plan h3 { font-size: 21px; letter-spacing: -0.02em; margin-bottom: 2px; }
+        .plan .desc { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; }
+        .plan .price { font-size: 38px; font-weight: 900; letter-spacing: -0.03em; }
+        .plan .price small { font-size: 13px; font-weight: 500; color: var(--dim); }
+        .plan .vs { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+        .plan .vs s { color: var(--dim); }
+        .plan ul { list-style: none; margin: 22px 0 24px; flex-grow: 1; }
+        .plan li { font-size: 14px; color: var(--muted); padding: 6px 0; display: flex; gap: 10px; align-items: flex-start; }
+        .plan li svg { width: 16px; height: 16px; stroke: var(--accent); flex-shrink: 0; margin-top: 3px; }
+        .plan .btn { width: 100%; }
+        .plan.popular { border-color: rgba(45, 212, 191, 0.55); box-shadow: 0 0 50px rgba(45, 212, 191, 0.12); background: linear-gradient(180deg, rgba(45,212,191,0.06), var(--bg-card) 40%); }
+        .plan.popular .tag { color: var(--accent); }
+        .team-note { text-align: center; margin-top: 28px; font-size: 14.5px; color: var(--muted); }
+        .team-note a { color: var(--accent); font-weight: 600; }
+
+        /* Compare table */
+        .compare-wrap { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--bg-card); max-width: 900px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--line); }
+        tr:last-child th, tr:last-child td { border-bottom: none; }
+        thead th { font-size: 13px; letter-spacing: 0.4px; text-transform: uppercase; color: var(--dim); font-weight: 700; background: rgba(255, 255, 255, 0.02); }
+        thead th.col-tagmi { color: var(--accent); }
+        td:first-child { color: var(--muted); }
+        .col-tagmi { background: rgba(45, 212, 191, 0.05); }
+        .yes { color: var(--accent); font-weight: 700; }
+        .no { color: var(--dim); }
+        .col-tagmi .yes { font-weight: 800; }
+
+        /* Includes grid */
+        .inc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .inc { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: border-color 0.2s ease; }
+        .inc:hover { border-color: rgba(45, 212, 191, 0.35); }
+        .inc svg { width: 26px; height: 26px; stroke: var(--accent); margin-bottom: 14px; }
+        .inc h4 { font-size: 16px; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .inc p { font-size: 13.5px; color: var(--muted); }
+
+        /* Guarantee band */
+        .guarantee {
+            background: linear-gradient(120deg, rgba(45,212,191,0.08), rgba(52,211,153,0.06));
+            border: 1px solid rgba(45, 212, 191, 0.3); border-radius: 20px;
+            padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; text-align: center;
+        }
+        .guarantee .g svg { width: 30px; height: 30px; stroke: var(--accent); margin-bottom: 12px; }
+        .guarantee .g h4 { font-size: 15.5px; margin-bottom: 4px; }
+        .guarantee .g p { font-size: 13px; color: var(--muted); }
+
+        /* Order form */
+        .order-box {
+            max-width: 620px; margin: 0 auto; background: var(--bg-card);
+            border: 1px solid var(--line); border-radius: 22px; padding: 38px;
+        }
+        label { display: block; font-size: 13.5px; font-weight: 600; color: var(--muted); margin: 18px 0 7px; }
+        label span { color: var(--accent); }
+        input, select, textarea {
+            width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line-strong);
+            border-radius: 12px; padding: 13px 15px; color: var(--text); font-size: 14.5px; font-family: inherit;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); background: rgba(255, 255, 255, 0.07); }
+        input::placeholder, textarea::placeholder { color: rgba(244, 247, 251, 0.3); }
+        select option { background: #0F1729; }
+        .order-cta { margin-top: 26px; }
+        .order-cta .btn { width: 100%; padding: 16px; font-size: 16px; }
+        .order-cta small { display: block; text-align: center; margin-top: 12px; color: var(--dim); font-size: 12.5px; }
+        .order-cta .email-fallback { color: var(--muted); text-decoration: underline; }
+        .order-foot { display: flex; justify-content: center; gap: 22px; margin-top: 18px; font-size: 12.5px; color: var(--dim); }
+        .order-foot span { display: inline-flex; align-items: center; gap: 6px; }
+        .order-foot svg { width: 14px; height: 14px; stroke: var(--accent); }
+
+        /* FAQ */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        details { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+        details[open] { border-color: rgba(45, 212, 191, 0.35); }
+        summary {
+            cursor: pointer; font-weight: 600; font-size: 15.5px; padding: 19px 22px;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            list-style: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary .chev { transition: transform 0.2s ease; color: var(--accent); flex-shrink: 0; }
+        details[open] summary .chev { transform: rotate(45deg); }
+        details p { font-size: 14.5px; color: var(--muted); padding: 0 22px 20px; }
+
+        /* Final CTA */
+        .final-cta { text-align: center; padding: 30px 0 0; }
+        .final-cta h2 { margin-bottom: 10px; }
+        .final-cta p { color: var(--muted); margin-bottom: 28px; font-size: 16px; }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--line); padding: 44px 24px 56px; margin-top: 40px; text-align: center; color: var(--dim); font-size: 13.5px; }
+        footer .logo { justify-content: center; margin-bottom: 12px; font-size: 18px; }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--text); }
+        footer .f-links { display: flex; justify-content: center; gap: 26px; margin: 14px 0; flex-wrap: wrap; }
+        footer .f-note { font-size: 12.5px; color: rgba(244, 247, 251, 0.3); }
+
+        @media (max-width: 960px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .hero-ctas, .hero-trust { justify-content: center; }
+            .stage { margin-top: 40px; }
+            .steps, .plans, .inc-grid, .guarantee { grid-template-columns: 1fr; }
+            .tap-card { left: 50%; margin-left: -190px; }
+            .compare-wrap { overflow-x: auto; }
+            table { min-width: 640px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="announce">Free UK delivery this month <span>·</span> One-time price — no subscription, ever</div>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="logo" href="#top"><span class="dot"></span>Tagmi</a>
+            <div class="nav-links">
+                <a href="#how">How it works</a>
+                <a href="#plans">Cards</a>
+                <a href="#compare">Compare</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a class="btn small" href="#order">Order now</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <div class="container hero-grid">
+            <div>
+                <div class="kicker"><span class="pulse"></span>From £9.99 · one-time · no subscription</div>
+                <h1>Your business card,<br>but it <span class="grad">taps</span>.</h1>
+                <p class="hero-sub">Tap your Tagmi on any phone and your profile opens instantly — contact details, socials and a one-tap <strong>Save Contact</strong> button. No app. No subscription. <strong>Free updates forever.</strong></p>
+                <div class="hero-ctas">
+                    <a class="btn" href="#order">Get my card →</a>
+                    <a class="btn ghost" href="#how">See how it works</a>
+                </div>
+                <div class="hero-trust">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Works on iPhone &amp; Android</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5L13 2z"/></svg>Set up in ~2 days</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>Free updates forever</span>
+                </div>
+            </div>
+
+            <div class="stage">
+                <div class="float-note">They tap · you're saved</div>
+                <div class="phone">
+                    <div class="notch"></div>
+                    <div class="screen">
+                        <div class="time">9:41</div>
+                        <div class="ava">AM</div>
+                        <div class="nm">Aryan Mehta</div>
+                        <div class="st">Founder of Tagmi · Available</div>
+                        <div class="row">
+                            <div class="chip"><b>Call</b>📞</div>
+                            <div class="chip"><b>Email</b>✉️</div>
+                            <div class="chip"><b>Chat</b>💬</div>
+                        </div>
+                        <div class="save">Save Contact</div>
+                    </div>
+                    <span class="tap-ring r2"></span>
+                    <span class="tap-ring r3"></span>
+                    <span class="tap-ring r4"></span>
+                </div>
+                <div class="tap-card">
+                    <div class="tc-logo"><span class="dot"></span>Tagmi</div>
+                    <div class="tc-name">Aryan Mehta</div>
+                    <div class="tc-role">Founder of Tagmi</div>
+                    <div class="tc-nfc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg>
+                        <span>NFC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="how">
+        <div class="container">
+            <div class="eyebrow">How it works</div>
+            <h2>Order today, tapping by the end of the week</h2>
+            <p class="sub">No apps, no accounts, no subscriptions — just a card that opens your page.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h3>Order</h3>
+                    <p>Pick your card and send us your details — name, photo, job, links. Takes about 5 minutes on WhatsApp.</p>
+                    <span class="time">5 min</span>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h3>We build your page</h3>
+                    <p>We create your personal profile page and programme your card to open it. You approve the design first.</p>
+                    <span class="time">~2 days</span>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h3>Tap &amp; share</h3>
+                    <p>Tap on any phone — your profile opens instantly. Save Contact, call, WhatsApp, socials. That's it.</p>
+                    <span class="time">2 seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="plans">
+        <div class="container">
+            <div class="eyebrow">Choose your card</div>
+            <h2>Three ways to tap</h2>
+            <p class="sub">Every card includes your profile page, tap analytics and free updates — no subscription, ever.</p>
+            <div class="plans">
+                <div class="plan">
+                    <div class="tag">Starter</div>
+                    <h3>NFC Sticker</h3>
+                    <p class="desc">The cheap way in — stick it on your phone, laptop or badge.</p>
+                    <div class="price">£9.99 <small>/ one-time</small></div>
+                    <div class="vs">vs <s>£30+</s> elsewhere</div>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1× NFC sticker (waterproof)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Personal profile page</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-tap Save Contact</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tap analytics to your phone</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>QR fallback card</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free updates forever</li>
+                    </ul>
+                    <a class="btn ghost" href="#order">Order Starter</a>
+                </div>
+
+                <div class="plan popular">
+                    <div class="ribbon">Most popular</div>
+                    <div class="tag">Standard</div>
+                    <h3>PVC Card</h3>
+                    <p class="desc">The classic tap card — no custom printing needed, just works.</p>
+                    <div class="price">£14.99 <small>/ one-time</small></div>
+                    <div class="vs">vs <s>£40+</s> elsewhere</div>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1× PVC NFC card (credit-card size)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Personal profile page</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>One-tap Save Contact</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tap analytics to your phone</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>QR fallback card included</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free updates forever</li>
+                    </ul>
+                    <a class="btn" href="#order">Order PVC Card</a>
+                </div>
+
+                <div class="plan">
+                    <div class="tag">Premium</div>
+                    <h3>Card + Sticker Pack</h3>
+                    <p class="desc">Your card, plus spare stickers — always ready to tap.</p>
+                    <div class="price">£19.99 <small>/ one-time</small></div>
+                    <div class="vs">vs <s>£60+</s> elsewhere</div>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1× PVC NFC card</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>2× extra NFC stickers (phone, wallet, laptop)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in PVC Card</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority setup (24h)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Carry pack for all three</li>
+                    </ul>
+                    <a class="btn ghost" href="#order">Order Premium Pack</a>
+                </div>
+            </div>
+            <p class="team-note">Need 5+ cards for your team? <a href="#order">Message us on WhatsApp</a> — 10% off and one dashboard for everyone.</p>
+        </div>
+    </section>
+
+    <section id="compare">
+        <div class="container">
+            <div class="eyebrow">The honest comparison</div>
+            <h2>Why Tagmi beats the big brands</h2>
+            <p class="sub">They sell the same tap with a subscription bolted on. We sell the tap.</p>
+            <div class="compare-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="col-tagmi">Tagmi</th>
+                            <th>Big NFC brands</th>
+                            <th>Paper cards</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price</td>
+                            <td class="col-tagmi">£9.99–24.99 <span class="yes">one-time</span></td>
+                            <td class="no">£30+ and a subscription</td>
+                            <td class="no">£50+ per box</td>
+                        </tr>
+                        <tr>
+                            <td>Subscription</td>
+                            <td class="col-tagmi yes">None — ever</td>
+                            <td class="no">£7–15 / month</td>
+                            <td class="no">None</td>
+                        </tr>
+                        <tr>
+                            <td>Tap to share contact</td>
+                            <td class="col-tagmi yes">Yes</td>
+                            <td class="yes">Yes</td>
+                            <td class="no">No</td>
+                        </tr>
+                        <tr>
+                            <td>One-tap Save Contact</td>
+                            <td class="col-tagmi yes">Yes</td>
+                            <td class="yes">Yes</td>
+                            <td class="no">Typing required</td>
+                        </tr>
+                        <tr>
+                            <td>See who viewed you</td>
+                            <td class="col-tagmi yes">Every tap</td>
+                            <td class="no">Premium tier only</td>
+                            <td class="no">No</td>
+                        </tr>
+                        <tr>
+                            <td>Update your details</td>
+                            <td class="col-tagmi yes">Free, forever</td>
+                            <td class="no">Re-buy or reprint</td>
+                            <td class="no">Re-print</td>
+                        </tr>
+                        <tr>
+                            <td>QR backup</td>
+                            <td class="col-tagmi yes">Included</td>
+                            <td class="no">Some models</td>
+                            <td class="no">N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Setup time</td>
+                            <td class="col-tagmi yes">~2 days</td>
+                            <td class="no">Days–weeks</td>
+                            <td class="no">Instant</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="included">
+        <div class="container">
+            <div class="eyebrow">Included on every card</div>
+            <h2>Everything, included</h2>
+            <p class="sub">No upsells. No "premium" paywalls. What's listed is what you get.</p>
+            <div class="inc-grid">
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+                    <h4>Works on every phone</h4>
+                    <p>iPhone and Android, no app needed. QR code included as backup for older phones.</p>
+                </div>
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+                    <h4>One-tap Save Contact</h4>
+                    <p>They save you as a contact instantly. You never get lost in their phone again.</p>
+                </div>
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 13l4-4 4 4 5-6"/></svg>
+                    <h4>You see every tap</h4>
+                    <p>Device, city, what they opened and for how long — pinged straight to your phone.</p>
+                </div>
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    <h4>Update anytime</h4>
+                    <p>New number, new job, new link — we update your page. No reprinting, no re-buying.</p>
+                </div>
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <h4>Stick it anywhere</h4>
+                    <p>Sticker tier goes on your laptop, phone case, lanyard, board or toolbox.</p>
+                </div>
+                <div class="inc">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    <h4>Made for the UK</h4>
+                    <p>Set up by a real person, delivered fast, real support on WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guarantee" style="padding-top: 0">
+        <div class="container">
+            <div class="guarantee">
+                <div class="g">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    <h4>30-day happiness guarantee</h4>
+                    <p>If it doesn't work on your phone, we fix it or refund you. No questions.</p>
+                </div>
+                <div class="g">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5L13 2z"/></svg>
+                    <h4>Lifetime free updates</h4>
+                    <p>Your details change, your card doesn't. Updating your page is always free.</p>
+                </div>
+                <div class="g">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                    <h4>Real human support</h4>
+                    <p>Message us on WhatsApp and get a reply the same day — not a chatbot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order">
+        <div class="container">
+            <div class="eyebrow">Order</div>
+            <h2>Get your Tagmi today</h2>
+            <p class="sub">Fill this in — it opens WhatsApp with your order ready to send. Takes 2 minutes.</p>
+            <div class="order-box">
+                <form id="orderForm">
+                    <label for="name">Your name <span>*</span></label>
+                    <input type="text" id="name" placeholder="Aryan Mehta" required autocomplete="name">
+
+                    <label for="contact">Email or phone <span>*</span> <span style="color:var(--dim);font-weight:400">(so we can contact you)</span></label>
+                    <input type="text" id="contact" placeholder="you@email.com or +44..." required autocomplete="email">
+
+                    <label for="tier">Card</label>
+                    <select id="tier">
+                        <option value="Starter — £9.99 (NFC sticker)">Starter — £9.99 (NFC sticker)</option>
+                        <option value="Standard — £14.99 (PVC card)" selected>Standard — £14.99 (PVC card)</option>
+                        <option value="Premium — £19.99 (PVC card + 2 stickers)">Premium — £19.99 (PVC card + 2 stickers)</option>
+                        <option value="Team pack (5+ cards) — 10% off">Team pack (5+ cards) — 10% off</option>
+                    </select>
+
+                    <label for="job">Your job / business <span style="color:var(--dim);font-weight:400">(shown on your page)</span></label>
+                    <input type="text" id="job" placeholder="Founder of Tagmi">
+
+                    <label for="socials">Links to include <span style="color:var(--dim);font-weight:400">(Instagram, LinkedIn, WhatsApp, website...)</span></label>
+                    <input type="text" id="socials" placeholder="instagram.com/jane, linkedin.com/in/jane">
+
+                    <label for="extra">Extras</label>
+                    <select id="extra">
+                        <option value="none">None</option>
+                        <option value="Extra sticker £3">Extra sticker (£3)</option>
+                        <option value="Extra card £5">Extra replacement card (£5)</option>
+                        <option value="2 cards">2 cards (save on setup)</option>
+                    </select>
+
+                    <label for="notes">Anything else?</label>
+                    <textarea id="notes" rows="2" placeholder="Card colour, design ideas, deadline..."></textarea>
+
+                    <div class="order-cta">
+                        <a class="btn whatsapp" href="#" id="sendOrder">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#05211C"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.19 4.23-9.42 9.43-9.42a9.36 9.36 0 0 1 6.66 2.76 9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.24 9.42-9.44 9.42zm8.3-17.72A11.26 11.26 0 0 0 12.04 .71 11.29 11.29 0 0 0 .75 12.03c0 1.99.52 3.93 1.51 5.64L.63 23.37l5.82-1.53a11.27 11.27 0 0 0 5.59 1.42h.01c6.22 0 11.28-5.06 11.28-11.28 0-3.01-1.17-5.85-3.3-7.99z"/></svg>
+                            Send order on WhatsApp →
+                        </a>
+                        <small>No WhatsApp? <a class="email-fallback" href="mailto:aryanjigar.jmehta@gmail.com?subject=NFC%20card%20order">email us instead</a></small>
+                    </div>
+                    <div class="order-foot">
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/></svg>No card needed to order</span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2.5"/><line x1="1" y1="10" x2="23" y2="10"/></svg>No subscription, ever</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="eyebrow">FAQ</div>
+            <h2>Questions people ask before ordering</h2>
+            <p class="sub">If yours isn't here, WhatsApp us — a human replies the same day.</p>
+            <div class="faq-list">
+                <details>
+                    <summary>Does it work on iPhone?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>Yes — tap the top of an iPhone, the back of an Android. Any phone with NFC reads it. No app needed on either end.</p>
+                </details>
+                <details>
+                    <summary>Do the people I give it to need an app?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>No. Their phone opens your profile page in the browser automatically — contact details, socials and Save Contact. That's the whole point.</p>
+                </details>
+                <details>
+                    <summary>What if I change my number or job?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>Message us and we update your profile page — free, forever. Your card never goes out of date, unlike paper cards.</p>
+                </details>
+                <details>
+                    <summary>Why is it so much cheaper than the big brands?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>NFC chips cost pennies, your profile is hosted on free infrastructure, and setup is largely automated. The big brands charge £30+ for the card and then a subscription on top for the same simple thing.</p>
+                </details>
+                <details>
+                    <summary>Can I see who tapped my card?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>Yes — every tap pings your phone: device type, city, which links were opened and how long they stayed. It's anonymous for the tapper (no names, no personal data) and GDPR-friendly.</p>
+                </details>
+                <details>
+                    <summary>What's the QR code for?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>A backup. If someone's phone has NFC off, or is a bit older, they scan the QR card instead and get the same page.</p>
+                </details>
+                <details>
+                    <summary>How fast is delivery?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>UK delivery is typically 2–4 days after you approve your page. Need it faster? Say so on the order and we'll do our best.</p>
+                </details>
+                <details>
+                    <summary>Can I order for my whole team?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>Yes — 5+ cards get 10% off. One WhatsApp message with everyone's details, and we handle each person's page.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to be remembered?</h2>
+            <p>Your card could be tapping phones by the end of the week.</p>
+            <a class="btn" href="#order">Get my card →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo"><span class="dot"></span>Tagmi</div>
+        <div class="f-links">
+            <a href="#how">How it works</a>
+            <a href="#plans">Cards</a>
+            <a href="#compare">Compare</a>
+            <a href="#faq">FAQ</a>
+            <a href="privacy.html">Privacy policy</a>
+            <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
+        </div>
+        <p>Built in the UK · Support on WhatsApp</p>
+        <p class="f-note" style="margin-top:8px">© 2026 Tagmi. One-time price. No subscription, ever.</p>
+    </footer>
+
+    <script>
+        // WhatsApp order intake — no backend needed
+        var WHATSAPP_NUMBER = "447777940152"; // TODO: change to your real WhatsApp business number
+        var EMAIL_FALLBACK = "aryanjigar.jmehta@gmail.com";
+        var link = document.getElementById('sendOrder');
+        var form = document.getElementById('orderForm');
+
+        function buildMessage() {
+            var v = function(id) { return document.getElementById(id).value.trim(); };
+            var lines = [];
+            lines.push("Hi! I'd like to order an NFC business card from Tagmi.");
+            lines.push("");
+            lines.push("Name: " + v('name'));
+            lines.push("My contact: " + v('contact'));
+            lines.push("Card: " + v('tier'));
+            lines.push("Job/business: " + (v('job') || "-"));
+            lines.push("Links: " + (v('socials') || "-"));
+            lines.push("Extras: " + v('extra'));
+            if (v('notes')) lines.push("Notes: " + v('notes'));
+            return lines.join("\n");
+        }
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            var msg = encodeURIComponent(buildMessage());
+            window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + msg, '_blank');
+        });
+    </script>
+</body>
+</html>
