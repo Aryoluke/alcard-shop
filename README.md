@@ -1,4 +1,4 @@
-# Tagmi — NFC Business Card Business
+# Alcard — NFC Business Card Business
 
 The complete kit for selling affordable NFC business cards:
 
@@ -47,24 +47,24 @@ The complete kit for selling affordable NFC business cards:
 
 Why this beats one-public-repo-per-customer (the old `chaitalimehta-info` pattern):
 - The repo is **private** → your Telegram bot token in `tracker.js` stays secret
-- One deploy, one place to manage, cleaner URLs: `tagmi.is-a.dev/jane-smith/`
+- One deploy, one place to manage, cleaner URLs: `alcard.is-a.dev/jane-smith/`
 - GitHub Pages cannot do this (it only serves public repos on the free tier)
 
 Setup (one time):
 
-1. Create a **private** repo on GitHub, e.g. `tagmi-profiles` (or `profiles`).
+1. Create a **private** repo on GitHub, e.g. `alcard-profiles` (or `profiles`).
 2. Clone it locally, then copy every customer folder from `profiles/` into it:
    ```
-   cd tagmi-profiles
+   cd alcard-profiles
    robocopy "C:\Users\Aryan Mehta\PawWork\nfc-business\profiles" . /E
    git add .
    git commit -m "Jane Smith profile"
    git push origin main
    ```
-3. In Cloudflare Pages: **Create → Pages → Connect to Git → GitHub → tagmi-profiles**.
+3. In Cloudflare Pages: **Create → Pages → Connect to Git → GitHub → alcard-profiles**.
    Build settings: framework = None, root directory = leave empty.
-   Site name: `tagmi` → customer URLs are `https://tagmi.pages.dev/jane-smith/`
-   (once the is-a.dev domain is attached: `https://tagmi.is-a.dev/jane-smith/`).
+   Site name: `alcard` → customer URLs are `https://alcard.pages.dev/jane-smith/`
+   (once the is-a.dev domain is attached: `https://alcard.is-a.dev/jane-smith/`).
 
 Every `git push` auto-redeploys. New customer = build with the generator, copy the
 folder in, push. Done.
@@ -83,7 +83,7 @@ folder in, push. Done.
 
 1. Install **NFC Tools** (free, iOS + Android) on a phone that can *write* NFC (most Androids; iPhones can write only with the NFC Tools app on iPhone 7+).
 2. Open the app → **Write → Add a record → URL** → paste the customer's profile URL
-   (e.g. `https://tagmi.pages.dev/jane-smith/`).
+   (e.g. `https://alcard.pages.dev/jane-smith/`).
 3. Hold the sticker against the writer phone until it writes.
 4. Done. Test with a *different* phone (writing phone can't read its own tag).
 
@@ -99,9 +99,12 @@ folder in, push. Done.
       `generator/tracker.js`. Every tap then pings your Telegram.
 - [ ] **WhatsApp business number** — change `WHATSAPP_NUMBER` in `storefront/order.html`
       (placeholder: 447777940152).
-- [x] **Brand name** — **Tagmi** chosen (tag + me). Verified: no NFC company
-      of that name exists, and `tagmi.is-a.dev` is free. Nearest neighbours
-      avoided: TapID, TapMate, Tago, Kartatek, Kardone, OneKard.
+- [x] **Brand name** — **Alcard** chosen 10 Aug 2026 (al + card; rebranded from Tagmi).
+      Verified: no NFC/card company of that name; `alcard.is-a.dev` is free.
+      Rejected during the rebrand search: Tacto (dead NFC-card startup + active
+      tacto.ai), Altag (Chinese NFC-tag manufacturer), Tagme & Tapme (live
+      NFC-card brands), Tapmi (TAPMI business school), Tapto (TapTo.com NFC
+      cards), Taply (taply.io), Taglo (TAGLO LTD).
 - [ ] **Privacy policy** — one page, plain English: what the tracker collects
       (device type, country, page views — nothing else), no cookies, contact email.
       Link it from the storefront footer and profile pages.
@@ -121,8 +124,8 @@ privacy) with WhatsApp ordering — no backend, no subscriptions.
 Everything is prepared in the `hosting/` folder — follow
 [`hosting/README-deploy-shop.md`](hosting/README-deploy-shop.md):
 
-1. Upload `hosting/storefront-upload.zip` to Cloudflare Pages (free, unlimited bandwidth, no card) → live instantly at `tagmi.pages.dev`
-2. Submit `hosting/tagmi.is-a.dev.json` as a PR to the is-a.dev registry (free custom domain, `tagmi.is-a.dev`)
+1. Upload `hosting/storefront-upload.zip` to Cloudflare Pages (free, unlimited bandwidth, no card) → live instantly at `alcard.pages.dev`
+2. Submit `hosting/alcard.is-a.dev.json` as a PR to the is-a.dev registry (free custom domain, `alcard.is-a.dev`)
 3. Link the domain to the project via the official helper at cf-pages.is-a.dev
 
 Fallback: push the `storefront/` folder to a GitHub Pages repo (free, URL is

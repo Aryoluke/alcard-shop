@@ -1,5 +1,5 @@
 /* ============================================================
-   Tagmi — shared design system for the whole shop
+   Alcard — shared design system for the whole shop
    Dark ink + emerald. Layered glow backdrop, grid texture,
    scroll-reveal animations. All legacy class contracts kept.
    ============================================================ */
@@ -312,12 +312,12 @@ table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
 th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--line); }
 tr:last-child th, tr:last-child td { border-bottom: none; }
 thead th { font-size: 13px; letter-spacing: 0.4px; text-transform: uppercase; color: var(--dim); font-weight: 700; background: rgba(255, 255, 255, 0.02); }
-thead th.col-tagmi { color: var(--accent); }
+thead th.col-alcard { color: var(--accent); }
 td:first-child { color: var(--muted); }
-.col-tagmi { background: rgba(45, 212, 191, 0.05); }
+.col-alcard { background: rgba(45, 212, 191, 0.05); }
 .yes { color: var(--accent); font-weight: 700; }
 .no { color: var(--dim); }
-.col-tagmi .yes { font-weight: 800; }
+.col-alcard .yes { font-weight: 800; }
 
 /* ============ Includes grid ============ */
 .inc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order — Tagmi</title>
-    <meta name="description" content="Order your Tagmi NFC card. From £6.99. Extras: stickers 50p, cards £1, custom domain +£5. Order via WhatsApp, pay by PayPal or card.">
+    <title>Order — Alcard</title>
+    <meta name="description" content="Order your Alcard NFC card. From £6.99. Extras: stickers 50p, cards £1, custom domain +£5. Order via WhatsApp, pay by PayPal or card.">
     <meta name="theme-color" content="#070B14">
     <link rel="icon" href="mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 
     <nav>
         <div class="nav-inner">
-            <a class="logo" href="index.html"><img class="logo-mark" src="mark.svg" alt="">Tagmi</a>
+            <a class="logo" href="index.html"><img class="logo-mark" src="mark.svg" alt="">Alcard</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="cards.html">Cards &amp; Pricing</a>
@@ -30,7 +30,7 @@
 
     <header class="page-head">
         <div class="kicker"><span class="pulse"></span>Takes 2 minutes · no card needed to order</div>
-        <h1>Order your Tagmi</h1>
+        <h1>Order your Alcard</h1>
         <p>Fill this in — it opens WhatsApp with your order ready to send, then pay by PayPal or card. We confirm the same day.</p>
     </header>
 
@@ -52,7 +52,7 @@
                     </select>
 
                     <label for="job">Your job / business <span class="hint">(shown on your page)</span></label>
-                    <input type="text" id="job" placeholder="Founder of Tagmi">
+                    <input type="text" id="job" placeholder="Founder of Alcard">
 
                     <label for="socials">Links to include <span class="hint">(Instagram, LinkedIn, WhatsApp, website...)</span></label>
                     <input type="text" id="socials" placeholder="instagram.com/you, linkedin.com/in/you">
@@ -106,7 +106,7 @@
     </section>
 
     <footer>
-        <a class="logo" href="index.html"><img src="logo.svg" alt="Tagmi"></a>
+        <a class="logo" href="index.html"><img src="logo.svg" alt="Alcard"></a>
         <div class="f-links">
             <a href="index.html">Home</a>
             <a href="cards.html">Cards &amp; Pricing</a>
@@ -117,7 +117,7 @@
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
         <p>Built in the UK · Support on WhatsApp</p>
-        <p class="f-note" style="margin-top:8px">© 2026 Tagmi. One-time price. No subscription, ever.</p>
+        <p class="f-note" style="margin-top:8px">© 2026 Alcard. One-time price. No subscription, ever.</p>
     </footer>
 
     <script src="site.js"></script>
@@ -125,7 +125,7 @@
     <script>
         // ===== CONFIG — change these before launch =====
         var WHATSAPP_NUMBER = "447777940152";  // TODO: your real WhatsApp business number
-        var PAYPAL_USERNAME = "";              // TODO: your PayPal.Me username (e.g. "tagmi") — leave empty to hide the button
+        var PAYPAL_USERNAME = "";              // TODO: your PayPal.Me username (e.g. "alcard") — leave empty to hide the button
         var STRIPE_LINK = "";                  // TODO: your Stripe payment link (custom-amount) — leave empty to hide the button
         var SHEETY_ENDPOINT = "";              // TODO: your Sheety API URL (writes orders to Google Sheets) — leave empty to skip
         // =============================================
@@ -211,7 +211,7 @@
             var c = parseInt(cardsEl.value || 0, 10);
             var d = domainEl.checked;
             var lines = [];
-            lines.push("Hi! I'd like to order from Tagmi.");
+            lines.push("Hi! I'd like to order from Alcard.");
             lines.push("");
             lines.push("Name: " + v('name'));
             lines.push("My contact: " + v('contact'));

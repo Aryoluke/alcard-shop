@@ -1,4 +1,4 @@
-/* Tagmi — small site-wide behaviours (no dependencies) */
+/* Alcard — small site-wide behaviours (no dependencies) */
 (function () {
     "use strict";
 
