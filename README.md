@@ -18,12 +18,15 @@ Cloudflare Pages. The production copy lives in the main project at
 ## Order flow
 
 No backend: the order form opens WhatsApp with a pre-filled message
-(breakdown + total). Change `WHATSAPP_NUMBER` in `order.html` to the real
-business number before launch.
+(breakdown + total), offers payment by PayPal or card (config at the top of
+`order.html`: `PAYPAL_USERNAME`, `STRIPE_LINK`), and optionally writes every
+order to a Google Sheet via Sheety (`SHEETY_ENDPOINT`). Change
+`WHATSAPP_NUMBER` in `order.html` to the real business number before launch.
 
-Tiers (no custom printing — decided Aug 2026; digital QR code, not a QR card):
-- Starter £5.99 — NFC sticker
-- Standard £9.99 — PVC NFC card
-- Premium £14.99 — PVC card + 2 extra stickers
+Tiers (plain card + NFC sticker attached — decided Aug 2026; digital QR, not a QR card):
+- Basic £6.99 — PVC card + sticker
+- Standard £9.99 — metal card + sticker (most popular)
+- Premium £14.99 — metal + custom domain
+- Business — custom cards for companies, contact for a quote
 
-Add-ons: extra sticker 50p, extra card £1, custom domain +£5.
+Add-ons: extra sticker 50p, extra card £1, custom domain +£5 (included in Premium).
