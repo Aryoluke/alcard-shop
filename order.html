@@ -134,7 +134,7 @@
 
                     <div class="total-box">
                         <span class="t-label">Your total</span>
-                        <span class="t-val" id="total">£9.99</span>
+                        <span class="t-val" id="total" aria-live="polite">£9.99</span>
                     </div>
                     <div class="total-note">UK delivery free this month · we confirm overseas postage with your order</div>
 
@@ -223,7 +223,7 @@
 
     <script>
         // ===== CONFIG — change these before launch =====
-        var WHATSAPP_NUMBER = "447777940152";  // TODO: your real WhatsApp business number
+        var WHATSAPP_NUMBER = "447777940152";
         var PAYPAL_USERNAME = "";              // TODO: your PayPal.Me username (e.g. "alcard") — leave empty to hide the button
         var STRIPE_LINK = "";                  // TODO: your Stripe payment link (custom-amount) — leave empty to hide the button
         var SHEETY_ENDPOINT = "";              // TODO: your Sheety API URL (writes orders to Google Sheets) — leave empty to skip
