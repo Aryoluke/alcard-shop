@@ -781,8 +781,7 @@ footer .f-note { font-size: 12.5px; color: rgba(244, 247, 251, 0.3); }
     .orb, .chip-float, .card-visual, .live-card { animation: none !important; }
 }
 
-/* ---------- v3: 4-step strip + back-to-top ---------- */
-.steps.steps-4 { grid-template-columns: repeat(4, 1fr); }
+/* ---------- v3: 4-step strip + back-to-top ---------- */.steps.steps-4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 960px) { .steps.steps-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .steps.steps-4 { grid-template-columns: 1fr; } }
 
@@ -823,3 +822,100 @@ footer .f-note { font-size: 12.5px; color: rgba(244, 247, 251, 0.3); }
 @keyframes wa-ping { 0% { transform: scale(1); opacity: 1; } 75%, 100% { transform: scale(1.7); opacity: 0; } }
 @media (min-width: 961px) { .wa-bubble { bottom: 24px; } }
 @media (prefers-reduced-motion: reduce) { .wa-bubble, .wa-bubble::after { transition: none; animation: none; } }
+
+/* ============================================================
+   v4 — visual redesign pass
+   Display type, richer glows, shimmering gradient, button shine,
+   bento "included" grid, plan-card lift, 3D tilt support, counters
+   ============================================================ */
+
+:root { --font-display: 'Space Grotesk', 'Inter', -apple-system, sans-serif; }
+
+/* ---- Display type across headings & key numbers ---- */
+h1, h2, h3, h4, .kicker, .eyebrow, .num, .btn, .logo, .stat b,
+.tc-name, .nm, .sum-total b, .t-val, .step h3 { font-family: var(--font-display); }
+h1, h2, h3 { letter-spacing: -0.035em; }
+.hero h1 { font-size: clamp(2.9rem, 6.2vw, 4.6rem); line-height: 1.04; }
+.hero-sub { font-size: 18.5px; }
+.page-head h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+
+/* ---- Animated shimmer on gradient text ---- */
+.grad {
+    background: linear-gradient(120deg, #2DD4BF 0%, #34D399 40%, #22D3EE 75%, #2DD4BF 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: grad-shift 5s linear infinite;
+}
+@keyframes grad-shift { to { background-position: 220% center; } }
+
+/* ---- Richer ambient glow behind everything ---- */
+body::before {
+    background:
+        radial-gradient(880px 540px at 12% -8%, rgba(45, 212, 191, 0.19), transparent 65%),
+        radial-gradient(920px 620px at 105% 12%, rgba(16, 185, 129, 0.14), transparent 62%),
+        radial-gradient(800px 660px at 50% 118%, rgba(45, 212, 191, 0.12), transparent 65%),
+        var(--bg);
+}
+
+/* ---- Primary buttons: position for shine sweep ---- */
+.btn { position: relative; overflow: hidden; }
+.btn:not(.ghost)::after {
+    content: ""; position: absolute; top: 0; left: -80%; width: 45%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+    transform: skewX(-20deg);
+    animation: btn-shine 3.4s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes btn-shine { 0%, 55% { left: -80%; } 85%, 100% { left: 135%; } }
+.btn:hover { transform: translateY(-3px) scale(1.015); box-shadow: 0 14px 38px rgba(45, 212, 191, 0.42); }
+
+/* ---- Plan cards: gradient hairline + deeper hover glow ---- */
+.plan::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    border-radius: 20px 20px 0 0;
+    background: var(--grad); opacity: 0.45; transition: opacity 0.2s ease;
+}
+.plan:hover::before { opacity: 1; }
+.plan:hover {
+    transform: translateY(-7px);
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(45, 212, 191, 0.22), 0 0 44px rgba(45, 212, 191, 0.14);
+}
+
+/* ---- "Included" bento grid ---- */
+.inc-grid .inc.wide { grid-column: span 2; }
+.inc-grid .inc.full { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 18px; align-items: center; }
+.inc-grid .inc.full svg { grid-row: 1 / span 2; }
+.inc-grid .inc.full h4 { margin-bottom: 0; }
+.inc-grid .inc.full p { margin-bottom: 0; }
+.inc:hover { transform: translateY(-4px); border-color: rgba(45, 212, 191, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+@media (max-width: 760px) {
+    .inc-grid .inc.wide, .inc-grid .inc.full { grid-column: auto; display: block; }
+}
+
+/* ---- Stats: bigger display numbers ---- */
+.stat b { font-size: 27px; }
+.stat { position: relative; padding-bottom: 14px; }
+.stat::after {
+    content: ""; position: absolute; left: 50%; bottom: 0; width: 34px; height: 2px;
+    transform: translateX(-50%);
+    background: var(--grad); border-radius: 2px; opacity: 0.7;
+}
+
+/* ---- Marquee edge fade ---- */
+.marquee::before, .marquee::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 110px; z-index: 3;
+    pointer-events: none;
+}
+.marquee::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.marquee::after { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+
+/* ---- 3D tilt support for the hero tap card ---- */
+.tap-card { will-change: transform; }
+.tap-card.tilt { animation: none; transition: transform 0.12s ease; }
+
+/* ---- Reduced-motion guards for v4 ---- */
+@media (prefers-reduced-motion: reduce) {
+    .grad, .btn::after { animation: none; }
+}
