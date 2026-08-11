@@ -68,4 +68,21 @@
     document.querySelectorAll(".js-year").forEach(function (el) {
         el.textContent = yr;
     });
+
+    /* 5) Back-to-top button — injected so every page gets it with zero markup */
+    var topBtn = document.createElement("button");
+    topBtn.className = "back-top";
+    topBtn.setAttribute("type", "button");
+    topBtn.setAttribute("aria-label", "Back to top");
+    topBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    document.body.appendChild(topBtn);
+    var onScrollTop = function () {
+        if (window.scrollY > 500) topBtn.classList.add("show");
+        else topBtn.classList.remove("show");
+    };
+    onScrollTop();
+    window.addEventListener("scroll", onScrollTop, { passive: true });
+    topBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 })();

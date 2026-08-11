@@ -57,6 +57,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html" class="active">Home</a>
                 <a href="cards.html">Cards &amp; Pricing</a>
+                <a href="about.html">About</a>
                 <a href="faq.html">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
@@ -70,6 +71,7 @@
     <main id="main">
 
     <header class="hero" id="top">
+        <div class="aurora" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
         <div class="container hero-grid">
             <div>
                 <div class="kicker reveal in"><span class="pulse"></span>From £6.99 · one-time · no subscription</div>
@@ -88,11 +90,14 @@
 
             <div class="stage reveal in">
                 <div class="float-note">They tap · you're saved</div>
+                <span class="chip-float cf-1"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No app needed</span>
+                <span class="chip-float cf-2"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg>Tap = saved</span>
+                <span class="chip-float cf-3"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>Free updates forever</span>
                 <div class="phone">
                     <div class="notch"></div>
                     <div class="screen">
                         <div class="time">9:41</div>
-                        <div class="ava"><img src="model-photo.jpg" alt="Aryan Mehta"></div>
+                        <div class="ava"><img src="model-photo.jpg" alt="Aryan Mehta" loading="lazy"></div>
                         <div class="nm">Aryan Mehta</div>
                         <div class="st">Founder of Alcard · Available</div>
                         <div class="row">
@@ -118,6 +123,23 @@
             </div>
         </div>
     </header>
+
+    <section class="reveal" style="padding: 46px 0 0">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat"><b>£6.99</b><span>from — one-time, not monthly</span></div>
+                <div class="stat"><b>0</b><span>apps or subscriptions, ever</span></div>
+                <div class="stat"><b>2 seconds</b><span>for their phone to open your page</span></div>
+                <div class="stat"><b>3–4 days</b><span>from order to your door (UK)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Freelancers</span><span>Recruiters</span><span>Estate agents</span><span>Tradespeople</span><span>Consultants</span><span>Coaches &amp; trainers</span><span>Photographers</span><span>Creators</span><span>Contractors</span><span>Sales teams</span><span>Startups</span><span>Founders</span><span>Freelancers</span><span>Recruiters</span><span>Estate agents</span><span>Tradespeople</span><span>Consultants</span><span>Coaches &amp; trainers</span><span>Photographers</span><span>Creators</span><span>Contractors</span><span>Sales teams</span><span>Startups</span><span>Founders</span>
+        </div>
+    </section>
 
     <section id="how" class="reveal">
         <div class="container">
@@ -147,6 +169,52 @@
         </div>
     </section>
 
+    <section id="usecases" class="reveal" style="padding-top: 0">
+        <div class="container">
+            <div class="eyebrow">Who it's for</div>
+            <h2>Made for the people you meet</h2>
+            <p class="sub">A card you can hand over anywhere — and the person on the other side keeps you, not your card.</p>
+            <div class="use-grid">
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+                    <h4>Freelancers &amp; consultants</h4>
+                    <p>Networking events, client meetings, coffee chats. One tap and they've saved you — before they forget your name.</p>
+                    <span class="u-tag">Networking</span>
+                </div>
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h4>Recruiters</h4>
+                    <p>Candidates tap, save you instantly and keep your details next to the job. No more "can you send your card again?"</p>
+                    <span class="u-tag">Hiring</span>
+                </div>
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                    <h4>Trades &amp; services</h4>
+                    <p>Hand it over on site, at the job, at the van. The customer saves you in two seconds — then calls or WhatsApps straight from your page.</p>
+                    <span class="u-tag">On-site</span>
+                </div>
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6M9 10h.01M15 10h.01"/></svg></div>
+                    <h4>Estate &amp; lettings agents</h4>
+                    <p>Every viewing and open day is a chance to be saved. Your page holds the listing links, your number and your feedback — in one tap.</p>
+                    <span class="u-tag">Sales</span>
+                </div>
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                    <h4>Creators &amp; photographers</h4>
+                    <p>Your portfolio, socials and booking link, all on one page. They tap the card instead of searching for you afterwards.</p>
+                    <span class="u-tag">Portfolio</span>
+                </div>
+                <div class="use-card">
+                    <div class="u-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h4>Small teams &amp; startups</h4>
+                    <p>Consistent pages for every team member, your branding, and team tap analytics. 5+ cards get 10% off automatically.</p>
+                    <span class="u-tag">Teams</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="demo" class="reveal" style="padding-top: 0">
         <div class="container">
             <div class="demo-grid">
@@ -165,7 +233,7 @@
                 <div class="demo-frame reveal">
                     <div class="urlbar">
                         <span class="dots"><span></span><span></span><span></span></span>
-                        <code>alcard.pages.dev/you</code>
+                        <code>yourname.alcard.uk</code>
                     </div>
                     <iframe src="model.html" title="Alcard profile demo" loading="lazy"></iframe>
                 </div>
@@ -213,6 +281,30 @@
         </div>
     </section>
 
+    <section id="story" class="reveal" style="padding-top: 0">
+        <div class="container">
+            <div class="story-grid">
+                <div>
+                    <div class="kicker"><span class="pulse"></span>Why Alcard exists</div>
+                    <h2>The big brands sell £30 cards — and then charge you forever</h2>
+                    <p class="sub">A box of paper cards costs a fortune, gets thrown away, and is outdated the moment your number changes. NFC cards from the big brands fix that — then hit you with a monthly subscription for what is essentially a hosted webpage.</p>
+                    <p>The chip costs pennies. The page is a plain webpage. So we built the same thing the honest way: <strong>a plain card with an NFC sticker, a clean profile page, and one small price.</strong> No subscription. No lock-in. If you ever want to leave, your page and your QR code are yours.</p>
+                    <ul class="values">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><div><b>Honest pricing</b>One price, listed up front. Extras at near cost. No "free trial" that quietly becomes £15 a month.</div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Privacy by design</b>We can't see who tapped your card, and neither can you — just device type, city and what they opened. No cookies, no tracking scripts.</div></li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><div><b>Real human support</b>Message us on WhatsApp and a person replies the same day. There's no chatbot maze — because there's only one of us.</div></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="story-note">
+                        <h4>One person, built in the UK</h4>
+                        <p>Alcard is a small, one-person business. That means no investors demanding subscriptions and no growth hacks — just a product that works and support that actually answers. <a href="about.html" style="color: var(--accent); font-weight: 600; text-decoration: none;">More about how it works →</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="guarantee" class="reveal" style="padding-top: 0">
         <div class="container">
             <div class="guarantee">
@@ -235,11 +327,49 @@
         </div>
     </section>
 
+    <section id="faq-home" class="reveal" style="padding-top: 0">
+        <div class="container">
+            <div class="eyebrow">Good questions</div>
+            <h2>Before you order</h2>
+            <p class="sub">The four things everyone asks first. <a href="faq.html" style="color: var(--accent); font-weight: 600; text-decoration: none;">All questions →</a></p>
+            <div class="faq-list">
+                <details>
+                    <summary>Is the card itself NFC?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>No — the card is a plain card, and the NFC chip is a sticker attached to it. Tap the sticker. Same result as an NFC-embedded card, at a fraction of the price.</p>
+                </details>
+                <details>
+                    <summary>Do the people I give it to need an app?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>No. Their phone opens your profile page in the browser automatically — contact details, socials and Save Contact. That's the whole point.</p>
+                </details>
+                <details>
+                    <summary>What if I change my number or job?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>Message us and we update your profile page — free, forever. Your card never goes out of date, unlike paper cards.</p>
+                </details>
+                <details>
+                    <summary>Why is it so much cheaper than the big brands?<span class="chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                    <p>NFC chips cost pennies, your profile is hosted on free infrastructure, and setup is largely automated. We charge one small price, and extras at near cost.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <section class="final-cta">
         <div class="container">
             <h2>Ready to be remembered?</h2>
             <p>Your card could be tapping phones by the end of the week.</p>
             <a class="btn" href="order.html">Get my card →</a>
+        </div>
+    </section>
+
+    <section class="reveal" style="padding: 40px 0 0">
+        <div class="container">
+            <div class="wa-band">
+                <div>
+                    <h3>Questions before you order?</h3>
+                    <p>A human replies on WhatsApp, usually the same day.</p>
+                </div>
+                <a class="btn whatsapp" href="https://wa.me/447777940152?text=Hi!%20I%27ve%20got%20a%20question%20about%20Alcard." target="_blank" rel="noopener">Message us on WhatsApp</a>
+            </div>
         </div>
     </section>
 
@@ -250,9 +380,11 @@
         <div class="f-links">
             <a href="index.html">Home</a>
             <a href="cards.html">Cards &amp; Pricing</a>
+            <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
             <a href="model.html">Demo</a>
             <a href="order.html">Order</a>
+            <a href="guarantee.html">Guarantee &amp; delivery</a>
             <a href="privacy.html">Privacy policy</a>
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>

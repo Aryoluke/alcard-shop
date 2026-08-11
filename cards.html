@@ -55,6 +55,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="cards.html" class="active">Cards &amp; Pricing</a>
+                <a href="about.html">About</a>
                 <a href="faq.html">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
@@ -77,6 +78,16 @@
         <div class="container">
             <div class="plans">
                 <div class="plan">
+                    <div class="card-visual cv-pvc">
+                        <div class="cv-top"><span class="cv-logo"><img src="brand-logo.png" alt="Alcard"></span></div>
+                        <div class="cv-mid">
+                            <div class="cv-name">Your Name</div>
+                            <div class="cv-role">Your title here</div>
+                        </div>
+                        <div class="cv-bottom">
+                            <span class="cv-nfc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg><span>NFC</span></span>
+                        </div>
+                    </div>
                     <div class="tag">Basic</div>
                     <h3>PVC Card + Sticker</h3>
                     <p class="desc">Credit-card size, slips in any wallet, NFC sticker on the front.</p>
@@ -95,6 +106,16 @@
 
                 <div class="plan popular">
                     <div class="ribbon">Most popular</div>
+                    <div class="card-visual cv-metal">
+                        <div class="cv-top"><span class="cv-logo"><img src="brand-logo.png" alt="Alcard"></span></div>
+                        <div class="cv-mid">
+                            <div class="cv-name">Your Name</div>
+                            <div class="cv-role">Your title here</div>
+                        </div>
+                        <div class="cv-bottom">
+                            <span class="cv-nfc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg><span>NFC</span></span>
+                        </div>
+                    </div>
                     <div class="tag">Standard</div>
                     <h3>Metal Card + Sticker</h3>
                     <p class="desc">Premium feel, cool to the touch, NFC sticker on the front.</p>
@@ -112,6 +133,16 @@
                 </div>
 
                 <div class="plan">
+                    <div class="card-visual cv-premium">
+                        <div class="cv-top"><span class="cv-logo"><img src="brand-logo.png" alt="Alcard"></span><span class="cv-domain">yourname.alcard.uk</span></div>
+                        <div class="cv-mid">
+                            <div class="cv-name">Your Name</div>
+                            <div class="cv-role">Your title here</div>
+                        </div>
+                        <div class="cv-bottom">
+                            <span class="cv-nfc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg><span>NFC</span></span>
+                        </div>
+                    </div>
                     <div class="tag">Premium</div>
                     <h3>Metal + Custom Domain</h3>
                     <p class="desc">Everything in Standard, plus your own clean personalised URL.</p>
@@ -128,6 +159,17 @@
                 </div>
 
                 <div class="plan business">
+                    <div class="card-visual cv-custom">
+                        <div class="cv-top"><span class="cv-logo"><img src="brand-logo.png" alt="Your logo here"></span></div>
+                        <div class="cv-mid">
+                            <div class="cv-ph">YOUR LOGO HERE</div>
+                            <div class="cv-name" style="margin-top: 8px">Your Team Member</div>
+                            <div class="cv-role">Your company</div>
+                        </div>
+                        <div class="cv-bottom">
+                            <span class="cv-nfc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg><span>NFC</span></span>
+                        </div>
+                    </div>
                     <div class="tag">Business</div>
                     <h3>Custom for your company</h3>
                     <p class="desc">Cards for your whole team, with your branding and your own URL pattern. Made to order, priced per project.</p>
@@ -167,6 +209,27 @@
                     <h4>Custom domain</h4>
                     <p>A clean, personalised URL for your page — included free in Premium.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="reveal" style="padding-top: 40px">
+        <div class="container">
+            <div class="team-calc">
+                <h3>Ordering for your team?</h3>
+                <p>5+ cards get 10% off automatically. See what your order would cost:</p>
+                <div class="tc-row">
+                    <span class="stepper">
+                        <button class="st-btn" type="button" data-dir="-1" aria-label="Fewer cards">−</button>
+                        <input id="teamQty" type="number" min="1" max="500" value="1" aria-label="Number of cards">
+                        <button class="st-btn" type="button" data-dir="1" aria-label="More cards">+</button>
+                    </span>
+                    <span style="color: var(--muted); font-size: 14px;">cards &times; <b style="color: var(--text)">£9.99</b> each</span>
+                </div>
+                <div class="tc-result" id="teamResult" aria-live="polite"></div>
+                <p style="margin-top: 18px; margin-bottom: 0;">
+                    <a class="btn ghost" href="https://wa.me/447777940152?text=Hi!%20I%27d%20like%20a%20quote%20for%20a%20team%20order%20of%20Alcard%20cards." target="_blank" rel="noopener">Get a team quote on WhatsApp</a>
+                </p>
             </div>
         </div>
     </section>
@@ -249,9 +312,11 @@
         <div class="f-links">
             <a href="index.html">Home</a>
             <a href="cards.html">Cards &amp; Pricing</a>
+            <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
             <a href="model.html">Demo</a>
             <a href="order.html">Order</a>
+            <a href="guarantee.html">Guarantee &amp; delivery</a>
             <a href="privacy.html">Privacy policy</a>
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
@@ -262,5 +327,36 @@
     <a class="mobile-cta" href="order.html">Get my card →</a>
 
     <script src="site.js"></script>
+
+    <script>
+        // Team quantity calculator — 5+ cards = 10% off
+        (function () {
+            var input = document.getElementById('teamQty');
+            var result = document.getElementById('teamResult');
+            if (!input || !result) return;
+            var unit = 9.99;
+            function render() {
+                var n = Math.max(1, Math.min(500, parseInt(input.value || '1', 10)));
+                input.value = n;
+                var gross = n * unit;
+                if (n >= 5) {
+                    var total = gross * 0.9;
+                    result.innerHTML = n + ' card' + (n > 1 ? 's' : '') + ' = <b>£' + gross.toFixed(2) + '</b> &nbsp;·&nbsp; <span class="saved">10% team discount → £' + total.toFixed(2) + '</span>';
+                } else {
+                    result.innerHTML = n + ' card' + (n > 1 ? 's' : '') + ' = <b>£' + gross.toFixed(2) + '</b> &nbsp;·&nbsp; <span class="saved" style="color: var(--dim)">5+ cards unlocks 10% off</span>';
+                }
+            }
+            input.addEventListener('input', render);
+            document.querySelectorAll('#team .st-btn').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var dir = parseInt(b.getAttribute('data-dir'), 10) || 1;
+                    var n = Math.max(1, Math.min(500, parseInt(input.value || '1', 10) + dir));
+                    input.value = n;
+                    render();
+                });
+            });
+            render();
+        })();
+    </script>
 </body>
 </html>

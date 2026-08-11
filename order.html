@@ -36,6 +36,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="cards.html">Cards &amp; Pricing</a>
+                <a href="about.html">About</a>
                 <a href="faq.html">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
@@ -56,6 +57,32 @@
 
     <section id="order" class="reveal" style="padding-top: 20px">
         <div class="container">
+            <div class="order-grid">
+            <aside class="order-side">
+                <div class="preview-wrap">
+                    <div class="preview-label">Your card, live</div>
+                    <div class="live-card lc-metal" id="liveCard">
+                        <div class="lc-top"><span class="lc-logo"><img src="brand-logo.png" alt="Alcard"></span></div>
+                        <div class="lc-mid">
+                            <div class="lc-name" id="lcName">Your Name</div>
+                            <div class="lc-role" id="lcRole">Your title here</div>
+                        </div>
+                        <div class="lc-bottom">
+                            <span class="lc-domain" id="lcDomain" hidden>yourname.alcard.uk</span>
+                            <span class="lc-nfc"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7M10 6.5a12 12 0 0 1 0 11M14 4.5a16 16 0 0 1 0 15"/></svg><span>NFC</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-box">
+                    <div class="sum-row"><b>Card</b><span class="sum-val" id="sumTierName">Standard</span></div>
+                    <div class="sum-row" id="sumStickers" hidden><b>Extra NFC stickers &times; <span id="sumStickQty">0</span></b><span class="sum-val" id="sumStickCost">£0.00</span></div>
+                    <div class="sum-row" id="sumCards" hidden><b>Extra cards &times; <span id="sumCardQty">0</span></b><span class="sum-val" id="sumCardCost">£0.00</span></div>
+                    <div class="sum-row" id="sumDomain" hidden><b>Custom domain</b><span class="sum-val">+£5.00</span></div>
+                    <div class="sum-row sum-free"><b>UK delivery</b><span class="sum-val">FREE</span></div>
+                    <div class="sum-row sum-total"><b>Total</b><span class="sum-val" id="sumTotal">£9.99</span></div>
+                </div>
+                <p class="sum-note team" id="teamNote" hidden>5+ cards total = 10% team discount — applied when we confirm your order.</p>
+            </aside>
             <div class="order-box">
                 <form id="orderForm">
                     <label for="name">Your name <span class="req">*</span></label>
@@ -81,12 +108,20 @@
                     <div class="qty-row">
                         <span class="q-name"><b>Extra NFC stickers</b> · spare ones for phone, wallet, laptop</span>
                         <span class="q-price">50p each</span>
-                        <input class="qty" type="number" id="extraStickers" min="0" max="20" value="0">
+                        <span class="stepper">
+                            <button class="st-btn" type="button" data-dir="-1" data-target="extraStickers" aria-label="Fewer stickers">−</button>
+                            <input class="qty" type="number" id="extraStickers" min="0" max="20" value="0" aria-label="Number of extra stickers">
+                            <button class="st-btn" type="button" data-dir="1" data-target="extraStickers" aria-label="More stickers">+</button>
+                        </span>
                     </div>
                     <div class="qty-row" style="margin-top:10px">
                         <span class="q-name"><b>Extra cards</b> · spare PVC or metal card, same page</span>
                         <span class="q-price">£1 each</span>
-                        <input class="qty" type="number" id="extraCards" min="0" max="10" value="0">
+                        <span class="stepper">
+                            <button class="st-btn" type="button" data-dir="-1" data-target="extraCards" aria-label="Fewer cards">−</button>
+                            <input class="qty" type="number" id="extraCards" min="0" max="10" value="0" aria-label="Number of extra cards">
+                            <button class="st-btn" type="button" data-dir="1" data-target="extraCards" aria-label="More cards">+</button>
+                        </span>
                     </div>
                     <div class="tick" style="margin-top:10px">
                         <input type="checkbox" id="customDomain">
@@ -127,6 +162,41 @@
                     </div>
                 </form>
             </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal" style="padding-top: 0">
+        <div class="container">
+            <div class="eyebrow">After you order</div>
+            <h2>From form to doorstep in four steps</h2>
+            <p class="sub">No accounts, no checkout maze — it takes about two minutes, and a human does the rest.</p>
+            <div class="steps steps-4">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h3>Fill the form</h3>
+                    <p>It opens WhatsApp with your order pre-written. Add anything you want to say.</p>
+                    <span class="time">2 minutes</span>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h3>We confirm &amp; invoice</h3>
+                    <p>A human replies the same day with payment details — card, bank or PayPal.</p>
+                    <span class="time">Same day</span>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h3>We build your page</h3>
+                    <p>Your profile goes live with your details. Send a photo and we'll add it.</p>
+                    <span class="time">24 hours</span>
+                </div>
+                <div class="step">
+                    <div class="num">4</div>
+                    <h3>Card in your pocket</h3>
+                    <p>Dispatched within 24–48h of payment. UK delivery in 3–4 days.</p>
+                    <span class="time">3–4 days</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -137,9 +207,11 @@
         <div class="f-links">
             <a href="index.html">Home</a>
             <a href="cards.html">Cards &amp; Pricing</a>
+            <a href="about.html">About</a>
             <a href="faq.html">FAQ</a>
             <a href="model.html">Demo</a>
             <a href="order.html">Order</a>
+            <a href="guarantee.html">Guarantee &amp; delivery</a>
             <a href="privacy.html">Privacy policy</a>
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
@@ -173,6 +245,20 @@
         var cardsEl = document.getElementById('extraCards');
         var domainEl = document.getElementById('customDomain');
         var domainPriceEl = document.getElementById('domainPrice');
+
+        // v2 live preview + summary nodes
+        var lcName = document.getElementById('lcName');
+        var lcRole = document.getElementById('lcRole');
+        var lcDomain = document.getElementById('lcDomain');
+        var liveCard = document.getElementById('liveCard');
+        var sumTierName = document.getElementById('sumTierName');
+        var sumStickers = document.getElementById('sumStickers');
+        var sumCards = document.getElementById('sumCards');
+        var sumDomain = document.getElementById('sumDomain');
+        var sumStickQty = document.getElementById('sumStickQty');
+        var sumCardQty = document.getElementById('sumCardQty');
+        var sumTotal = document.getElementById('sumTotal');
+        var teamNote = document.getElementById('teamNote');
 
         // Pre-select tier from ?tier=basic|standard|premium (used by the Cards page buttons)
         (function() {
@@ -216,7 +302,9 @@
         }
 
         function refreshTotal() {
-            totalEl.textContent = money(calc());
+            var total = calc();
+            totalEl.textContent = money(total);
+            sumTotal.textContent = money(total);
             var premium = premiumSelected();
             if (premium) {
                 domainEl.checked = false;
@@ -228,14 +316,64 @@
                 domainPriceEl.textContent = "+£5";
                 domainPriceEl.style.color = "";
             }
+            refreshSummary();
             refreshPayLabels();
         }
+
+        // v2: live card preview — the card shows the name, job and tier as you type
+        function refreshPreview() {
+            if (!lcName || !lcRole || !liveCard) return;
+            var nm = v('name') || "Your Name";
+            var role = v('job') || "Your title here";
+            lcName.textContent = nm;
+            lcRole.textContent = role;
+            lcName.classList.toggle('lc-empty', !v('name'));
+            lcRole.classList.toggle('lc-empty', !v('job'));
+            liveCard.className = "live-card " + (tierEl.value === 'basic' ? 'lc-pvc' : tierEl.value === 'premium' ? 'lc-premium' : 'lc-metal');
+            lcDomain.hidden = tierEl.value !== 'premium';
+        }
+
+        // v2: itemized order summary + team discount note
+        function refreshSummary() {
+            if (!sumTierName) return;
+            var s = parseInt(stickersEl.value || 0, 10);
+            var c = parseInt(cardsEl.value || 0, 10);
+            var d = domainEl.checked && !premiumSelected();
+            sumTierName.textContent = TIERS[tierEl.value].name.split(" — ")[0];
+            sumStickers.hidden = s === 0;
+            sumStickQty.textContent = s;
+            document.getElementById('sumStickCost').textContent = money(s * PRICE_STICKER);
+            sumCards.hidden = c === 0;
+            sumCardQty.textContent = c;
+            document.getElementById('sumCardCost').textContent = money(c * PRICE_CARD);
+            sumDomain.hidden = !d;
+            teamNote.hidden = !(1 + c >= 5);
+        }
+
+        // v2: +/- steppers for the extras rows
+        document.querySelectorAll('#orderForm .st-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+                var target = document.getElementById(b.getAttribute('data-target'));
+                if (!target) return;
+                var dir = parseInt(b.getAttribute('data-dir'), 10) || 1;
+                var min = parseInt(target.min || '0', 10);
+                var max = parseInt(target.max || '999', 10);
+                target.value = Math.max(min, Math.min(max, parseInt(target.value || '0', 10) + dir));
+                refreshTotal();
+            });
+        });
 
         [tierEl, stickersEl, cardsEl, domainEl].forEach(function(el) {
             el.addEventListener('input', refreshTotal);
             el.addEventListener('change', refreshTotal);
         });
+        var nameEl = document.getElementById('name');
+        var jobEl = document.getElementById('job');
+        [nameEl, jobEl].forEach(function(el) {
+            el.addEventListener('input', refreshPreview);
+        });
         refreshTotal();
+        refreshPreview();
 
         // Build the WhatsApp message
         function v(id) { return document.getElementById(id).value.trim(); }
