@@ -5,28 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ — Alcard</title>
     <meta name="description" content="Alcard FAQ: does it work on iPhone? Do they need an app? Delivery times, digital QR code, privacy, team orders.">
+    <meta property="og:title" content="FAQ — Alcard">
+    <meta property="og:description" content="Does it work on iPhone? Do they need an app? Delivery times, QR codes, privacy and team orders — answered.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="FAQ — Alcard">
+    <meta name="twitter:description" content="Does it work on iPhone? Do they need an app? Delivery times, QR codes, privacy and team orders — answered.">
+    <meta property="og:url" content="https://aryoluke.github.io/alcard-shop/faq.html">
+    <meta property="og:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="Alcard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aryoluke.github.io/alcard-shop/faq.html">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#070B14">
     <link rel="icon" href="mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is the card itself NFC?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No — the card is a plain card, and the NFC chip is a sticker attached to it. Tap the sticker. Same result, a fraction of the price of an NFC-embedded card." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work on iPhone?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes — tap the top of an iPhone, the back of an Android. Any phone with NFC reads it. No app needed on either end." }
+            },
+            {
+                "@type": "Question",
+                "name": "Do the people I give it to need an app?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Their phone opens your profile page in the browser automatically — contact details, socials and Save Contact. That's the whole point." }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I change my number or job?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Message us and we update your profile page — free, forever. Your card never goes out of date, unlike paper cards." }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is it so much cheaper than the big brands?",
+                "acceptedAnswer": { "@type": "Answer", "text": "NFC chips cost pennies, your profile is hosted on free infrastructure, and setup is largely automated. We charge one small price, and extras at near cost." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I see WHO tapped my card?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No — and that's deliberate. Every tap pings your phone with device type, city, what they opened and how long they stayed, but never a name or identity. Anonymous and GDPR-friendly." }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I get a QR code?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes — every order includes a digital QR code for your profile page. Show it on your screen, drop it in your email signature, or print it yourself." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a custom domain add-on?",
+                "acceptedAnswer": { "@type": "Answer", "text": "For +£5 one-time on Basic or Standard, your profile page gets a clean personalised URL (for example yourname.alcard.uk). Included free in Premium." }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast is delivery?",
+                "acceptedAnswer": { "@type": "Answer", "text": "UK: 3–4 days from order to doorstep. Overseas: about 7 days. Need it faster? Say so on the order and we'll do our best." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I order for my whole team or business?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. 5+ cards get 10% off, and for companies we do fully custom runs — your branding on the cards, a consistent page per team member, and team tap analytics." }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I pay?",
+                "acceptedAnswer": { "@type": "Answer", "text": "After you send your order we confirm it and send payment details — card, bank transfer or PayPal. No subscription, no recurring charges, ever." }
+            }
+        ]
+    }
+    </script>
 </head>
-<body>
+<body class="has-cta">
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="announce">Free UK delivery this month <span>·</span> From £6.99 — one-time price, no subscription, ever</div>
 
     <nav>
         <div class="nav-inner">
             <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="cards.html">Cards &amp; Pricing</a>
                 <a href="faq.html" class="active">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
-            <a class="btn small" href="order.html">Order now</a>
+            <div class="nav-actions">
+                <a class="btn small" href="order.html">Order now</a>
+                <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
         </div>
     </nav>
+
+    <main id="main">
 
     <header class="page-head">
         <div class="kicker"><span class="pulse"></span>Good questions</div>
@@ -93,6 +176,8 @@
         </div>
     </section>
 
+    </main>
+
     <footer>
         <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
         <div class="f-links">
@@ -105,8 +190,10 @@
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
         <p>Built in the UK · Support on WhatsApp</p>
-        <p class="f-note" style="margin-top:8px">© 2026 Alcard. One-time price. No subscription, ever.</p>
+        <p class="f-note" style="margin-top:8px">© <span class="js-year">2026</span> Alcard. One-time price. No subscription, ever.</p>
     </footer>
+
+    <a class="mobile-cta" href="order.html">Get my card →</a>
 
     <script src="site.js"></script>
 </body>

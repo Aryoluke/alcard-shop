@@ -5,28 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards &amp; Pricing — Alcard (from £6.99)</title>
     <meta name="description" content="Alcard cards from £6.99: PVC card + NFC sticker, metal card + NFC sticker, or metal + custom domain. Business cards for teams on request. One-time price, no subscription.">
+    <meta property="og:title" content="Cards &amp; Pricing — Alcard (from £6.99)">
+    <meta property="og:description" content="PVC card + NFC sticker from £6.99, metal card + NFC sticker from £9.99. One-time price, no subscription, free updates forever.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="Cards &amp; Pricing — Alcard (from £6.99)">
+    <meta name="twitter:description" content="PVC card + NFC sticker from £6.99, metal card + NFC sticker from £9.99. One-time price, no subscription.">
+    <meta property="og:url" content="https://aryoluke.github.io/alcard-shop/cards.html">
+    <meta property="og:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="Alcard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aryoluke.github.io/alcard-shop/cards.html">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#070B14">
     <link rel="icon" href="mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Alcard NFC Business Card",
+        "description": "Tap-to-share NFC business card with a personal profile page, one-tap Save Contact, anonymous tap analytics and a digital QR backup. One-time price, no subscription.",
+        "brand": { "@type": "Brand", "name": "Alcard" },
+        "image": "https://aryoluke.github.io/alcard-shop/og-image.png",
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "6.99",
+            "highPrice": "14.99",
+            "priceCurrency": "GBP",
+            "availability": "https://schema.org/InStock",
+            "offerCount": "3",
+            "description": "Basic £6.99 (PVC card + NFC sticker), Standard £9.99 (metal card + NFC sticker), Premium £14.99 (metal + custom domain). One-time prices — no subscription."
+        }
+    }
+    </script>
 </head>
-<body>
+<body class="has-cta">
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="announce">Free UK delivery this month <span>·</span> From £6.99 — one-time price, no subscription, ever</div>
 
     <nav>
         <div class="nav-inner">
             <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="cards.html" class="active">Cards &amp; Pricing</a>
                 <a href="faq.html">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
-            <a class="btn small" href="order.html">Order now</a>
+            <div class="nav-actions">
+                <a class="btn small" href="order.html">Order now</a>
+                <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
         </div>
     </nav>
+
+    <main id="main">
 
     <header class="page-head">
         <div class="kicker"><span class="pulse"></span>One-time price · no subscription, ever</div>
@@ -203,6 +242,8 @@
         </div>
     </section>
 
+    </main>
+
     <footer>
         <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
         <div class="f-links">
@@ -215,8 +256,10 @@
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
         <p>Built in the UK · Support on WhatsApp</p>
-        <p class="f-note" style="margin-top:8px">© 2026 Alcard. One-time price. No subscription, ever.</p>
+        <p class="f-note" style="margin-top:8px">© <span class="js-year">2026</span> Alcard. One-time price. No subscription, ever.</p>
     </footer>
+
+    <a class="mobile-cta" href="order.html">Get my card →</a>
 
     <script src="site.js"></script>
 </body>

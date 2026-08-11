@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order — Alcard</title>
     <meta name="description" content="Order your Alcard NFC card. From £6.99. Extras: stickers 50p, cards £1, custom domain +£5. Order via WhatsApp, pay by PayPal or card.">
+    <meta property="og:title" content="Order your Alcard — from £6.99">
+    <meta property="og:description" content="Order your Alcard NFC business card in two minutes. From £6.99 one-time — no subscription, free UK delivery this month.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="Order your Alcard — from £6.99">
+    <meta name="twitter:description" content="Order your Alcard NFC business card in two minutes. From £6.99 one-time — no subscription.">
+    <meta property="og:url" content="https://aryoluke.github.io/alcard-shop/order.html">
+    <meta property="og:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="Alcard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aryoluke.github.io/alcard-shop/og-image.png">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aryoluke.github.io/alcard-shop/order.html">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#070B14">
     <link rel="icon" href="mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,25 +27,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="announce">Free UK delivery this month <span>·</span> From £6.99 — one-time price, no subscription, ever</div>
 
     <nav>
         <div class="nav-inner">
             <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="cards.html">Cards &amp; Pricing</a>
                 <a href="faq.html">FAQ</a>
                 <a href="model.html">Demo</a>
             </div>
-            <a class="btn small" href="order.html">Order now</a>
+            <div class="nav-actions">
+                <a class="btn small" href="order.html">Order now</a>
+                <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+            </div>
         </div>
     </nav>
+
+    <main id="main">
 
     <header class="page-head">
         <div class="kicker"><span class="pulse"></span>Takes 2 minutes · no card needed to order</div>
         <h1>Order your Alcard</h1>
-        <p>Fill this in — it opens WhatsApp with your order ready to send, then pay by PayPal or card. We confirm the same day.</p>
+        <p>Fill this in — it opens WhatsApp with your order ready to send. Pay by PayPal, card or bank transfer; we confirm the same day.</p>
     </header>
 
     <section id="order" class="reveal" style="padding-top: 20px">
@@ -81,6 +101,7 @@
                         <span class="t-label">Your total</span>
                         <span class="t-val" id="total">£9.99</span>
                     </div>
+                    <div class="total-note">UK delivery free this month · we confirm overseas postage with your order</div>
 
                     <div class="pay-row">
                         <a class="btn pay" href="#" id="payPaypal" data-pay="paypal">
@@ -96,14 +117,20 @@
                             Send order on WhatsApp
                         </a>
                     </div>
+                    <p class="pay-note" id="payNote" hidden>Card &amp; PayPal buttons are being switched on — for now, order via WhatsApp and we'll confirm payment details with you after.</p>
                     <div class="order-foot">
                         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/></svg>No card needed to order</span>
                         <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2.5"/><line x1="1" y1="10" x2="23" y2="10"/></svg>No subscription, ever</span>
+                    </div>
+                    <div class="order-cta">
+                        <small>Prefer email? <a class="email-fallback" href="mailto:aryanjigar.jmehta@gmail.com?subject=Alcard%20order">send your order by email instead</a></small>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+
+    </main>
 
     <footer>
         <a class="logo" href="index.html"><img class="logo-img" src="brand-logo.png" alt="Alcard"></a>
@@ -117,7 +144,7 @@
             <a href="mailto:aryanjigar.jmehta@gmail.com">Contact</a>
         </div>
         <p>Built in the UK · Support on WhatsApp</p>
-        <p class="f-note" style="margin-top:8px">© 2026 Alcard. One-time price. No subscription, ever.</p>
+        <p class="f-note" style="margin-top:8px">© <span class="js-year">2026</span> Alcard. One-time price. No subscription, ever.</p>
     </footer>
 
     <script src="site.js"></script>
@@ -150,7 +177,11 @@
         // Pre-select tier from ?tier=basic|standard|premium (used by the Cards page buttons)
         (function() {
             var t = new URLSearchParams(window.location.search).get('tier');
-            if (t && TIERS[t]) { tierEl.value = t; }
+            if (t && TIERS[t]) {
+                tierEl.value = t;
+                var target = document.getElementById('order');
+                if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+            }
         })();
 
         function money(n) {
@@ -173,12 +204,15 @@
         // Payment buttons — labels follow the live total
         var payPalBtn = document.getElementById('payPaypal');
         var payCardBtn = document.getElementById('payCard');
+        var payNote = document.getElementById('payNote');
         function refreshPayLabels() {
             var amt = calc().toFixed(2);
             payPalBtn.lastChild.textContent = " Pay with PayPal — £" + amt;
             payCardBtn.lastChild.textContent = " Pay by card — £" + amt;
+            var anyLive = !!(PAYPAL_USERNAME || STRIPE_LINK);
             payPalBtn.style.display = PAYPAL_USERNAME ? "" : "none";
             payCardBtn.style.display = STRIPE_LINK ? "" : "none";
+            if (payNote) payNote.hidden = anyLive;
         }
 
         function refreshTotal() {

@@ -128,6 +128,13 @@ Everything is prepared in the `hosting/` folder — follow
 2. Submit `hosting/alcard.is-a.dev.json` as a PR to the is-a.dev registry (free custom domain, `alcard.is-a.dev`)
 3. Link the domain to the project via the official helper at cf-pages.is-a.dev
 
+**Current live setup (since Aug 2026):** GitHub Pages at
+`https://aryoluke.github.io/alcard-shop/` (repo **`Aryoluke/alcard-shop`**, branch
+`main` — the repo was renamed from the original `tagmi-shop` when the brand
+changed to Alcard). Push the `storefront/` folder contents straight to `main` and
+Pages auto-rebuilds in 30–60 s. The old repo name/URL is dead — update any
+bookmarks, vCards or QR codes that still point at it.
+
 Fallback: push the `storefront/` folder to a GitHub Pages repo (free, URL is
 `https://<YOU>.github.io/<repo>/`).
 
